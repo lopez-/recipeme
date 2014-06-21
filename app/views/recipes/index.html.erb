@@ -7,6 +7,7 @@
 		<th>Title</th>
 		<th>Ingredients</th>
 		<th>Preparation</th>
+		<th colspan = "2"></th>
 	</tr>
 
 	<% @recipes.each do |recipe| %>
@@ -14,9 +15,11 @@
 			<td><%= recipe.title %></td>
 			<td><%= recipe.ingredients %></td>
 			<td><%= recipe.preparation %></td>
+			<td><%= link_to 'Show', recipe_path(recipe) %></td>
+			<td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+			<td><%= link_to 'Destroy', recipe_path(recipe), method: :delete, data: {confirm: 'Are you sure?'} %></td>
 		</tr>
 	<% end %>
-
 </table>
 
 <%= link_to "New Recipe", new_recipe_path %>
